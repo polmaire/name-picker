@@ -1,15 +1,12 @@
-// index.js
-const express = require('express')
-const app = express()
-const PORT = 4000
+const express = require('express');
+const app = express();
 
-app.get('/home', (req, res) => {
-  res.status(200).json('Welcome, your app is working well');
-})
-
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+app.get('/', (req, res) => {
+  res.send('Hello World!');
 });
 
-// Export the Express API
-module.exports = app
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
+
